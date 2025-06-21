@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Grade Entry</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Assign Grades to Student</h1>
+      <form id="grade-form">
+        <label for="index-number">Student Index Number:</label>
+        <input type="text" id="index-number" required />
+        <button type="button" id="load-courses-btn">Load Courses</button>
+        <div id="courses-grades"></div>
+        <button type="submit">Submit Grades</button>
+      </form>
+    </div>
+    <!-- Only the <script> section for admin.html is shown here -->
+    <script>
+      let coursesWithGrades = [];
+
+      function isValidGradeInput(grade) {
+        return /^[A-FX]$/i.test(grade);
+      }
+
+      document
+        .getElementById("load-courses-btn")
+        .addEventListener("click", async function () {
+          const index_number = document.getElementById("index-number").value;
+          if (!index_number) {
+            alert("Please enter an index number first.");
+            return;
+          }
+
+          // Fetch courses and grades for pre-fill
+          const res = await fetch(
+            `http://localhost:3000/api/admin/courses-grades/${index_number}`
+          );
+          coursesWithGrades = await res.json();
+
+          const coursesDiv = document.getElementById("courses-grades");
+          coursesDiv.innerHTML = "";
+          if (
+            !Array.isArray(coursesWithGrades) ||
+            coursesWithGrades.length === 0
+          ) {
+            coursesDiv.innerHTML = "<p>No courses found for this student.</p>";
+            return;
+          }
+          coursesWithGrades.forEach((course) => {
+            coursesDiv.innerHTML += `
+        <label>${course.course_name}:</label>
+        <input type="text" name="grade-${course.course_id}" value="${
+              course.grade || ""
+            }" placeholder="Grade (A-F or X)">
+        <br>
+      `;
+          });
+        });
+
+      document
+        .getElementById("grade-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const index_number = document.getElementById("index-number").value;
+          if (!coursesWithGrades.length) {
+            alert("Please load courses first.");
+            return;
+          }
+          // Validate all grades before submitting
+          for (const course of coursesWithGrades) {
+            const gradeValue = document
+              .querySelector(`[name="grade-${course.course_id}"]`)
+              .value.trim();
+            if (gradeValue && !isValidGradeInput(gradeValue)) {
+              alert(
+                "Invalid grade detected! Only letters A-F or X are allowed."
+              );
+              return; // Stop submission
+            }
+          }
+          const gradesToSubmit = coursesWithGrades.map((course) => ({
+            course_id: course.course_id,
+            grade:
+              document.querySelector(`[name="grade-${course.course_id}"]`)
+                .value || null,
+          }));
+          await fetch("http://localhost:3000/api/admin/assign-grades", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ index_number, grades: gradesToSubmit }),
+          });
+          alert("Grades submitted!");
+        });
+    </script>
+  </body>
+</html>

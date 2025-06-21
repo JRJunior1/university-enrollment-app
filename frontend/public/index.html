@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Enrollment</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>University Enrollment</h1>
+      <form id="registration-form">
+        <label for="voucher-code">Voucher Code:</label>
+        <input type="text" id="voucher-code" name="voucher-code" required />
+
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" required />
+
+        <label for="other-names">Other Names:</label>
+        <input type="text" id="other-names" name="other-names" required />
+
+        <label for="department">Department:</label>
+        <select id="department" name="department">
+          <option value="1">Computer Science</option>
+          <option value="2">Business Administration</option>
+          <option value="3">Electrical Engineering</option>
+        </select>
+
+        <button type="submit">Register</button>
+      </form>
+      <div id="registration-result"></div>
+      <div
+        id="login-link-container"
+        style="text-align: center; margin-top: 18px"
+      >
+        <a href="login.html" class="login-link"
+          >Already have an account? Go to Login</a
+        >
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

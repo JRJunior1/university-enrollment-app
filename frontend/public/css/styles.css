@@ -1,0 +1,293 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f6faff;
+  color: #1e293b;
+}
+
+.container {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(44, 62, 80, 0.08);
+}
+
+header {
+  background: #2563eb;
+  color: #fff;
+  padding: 32px 0 24px 0;
+  border-radius: 18px 18px 0 0;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.container h1 {
+  text-align: center;
+  color: #2563eb;
+  font-size: 2.2rem;
+  margin-bottom: 28px;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.container .head {
+  color: white;
+}
+
+#student-info,
+.dashboard,
+.admin-section {
+  margin-bottom: 32px;
+  padding: 18px 20px;
+  background: #f1f5fd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+}
+
+#grades,
+.admin-section {
+  margin-top: 10px;
+}
+
+form {
+  background: #fff;
+  padding: 24px 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2563eb;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 10px;
+  margin-bottom: 18px;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  background: #f1f5fd;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  border: 1.5px solid #2563eb;
+  outline: none;
+  background: #e0e7ff;
+}
+
+input[type="submit"],
+button,
+#logout-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+input[type="submit"]:hover,
+button:hover,
+#logout-btn:hover {
+  background: #1e40af;
+}
+
+ul#student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+
+ul#student-list li {
+  background: #e0e7ff;
+  color: #2563eb;
+  margin-bottom: 8px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+}
+
+.grade-table,
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+  margin-top: 18px;
+}
+
+th,
+td {
+  padding: 16px 14px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+th {
+  background: linear-gradient(90deg, #2563eb 80%, #60a5fa 100%);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+td {
+  background: #f9fafb;
+  color: #1e293b;
+  border-bottom: 1px solid #e0e7ff;
+  transition: background 0.2s;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:nth-child(even) td {
+  background: #f1f5fd;
+}
+
+tr:hover td {
+  background: #e0e7ff;
+  color: #2563eb;
+}
+
+td:last-child {
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Registration Success Box Styles */
+/* ...existing code above... */
+
+/* Registration Success Box Styles */
+.registration-success-box {
+  background: #f1f5fd;
+  padding: 24px 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  margin-top: 24px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.registration-success-box h3 {
+  color: #2563eb;
+  margin-top: 0;
+  text-align: center;
+}
+.registration-success-box p,
+.registration-success-box label,
+.registration-success-box a {
+  text-align: center;
+  width: 100%;
+}
+
+.copy-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+#index-number-box,
+#copy-index-btn {
+  width: 180px;
+  box-sizing: border-box;
+}
+
+#index-number-box {
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  border: 1.5px solid #2563eb;
+  border-radius: 6px;
+  background: #e0e7ff;
+  color: #2563eb;
+  font-weight: 600;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+#copy-index-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 500;
+  font-size: 1.05rem;
+  min-width: 0;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  margin-top: 4px;
+}
+
+#copy-index-btn:hover {
+  background: #1e40af;
+}
+.login-link {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* ...rest of your code... */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 16px 6px;
+    max-width: 98vw;
+  }
+  #student-info,
+  .dashboard,
+  .admin-section {
+    padding: 10px 6px;
+  }
+  th,
+  td {
+    padding: 10px 6px;
+    font-size: 0.95rem;
+  }
+}
