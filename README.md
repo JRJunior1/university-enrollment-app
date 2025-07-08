@@ -1,131 +1,105 @@
-# 📋 Customer Management Web Application
+# University Enrollment Web Application
 
-This project is a simple full-stack customer management application.
+This project is a full-stack University Enrollment Web Application built using the following technologies:
 
----
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js with Express
+- **Database**: MySQL
 
-## 🗂️ Project Structure
+## Project Structure
 
-The project is organized into two parts: **backend** and **frontend**.
+The project is organized into two main directories: backend and frontend.
 
-### ✅ Backend
+### Backend
 
-The backend handles the server, database connection, and customer operations. It includes:
+The backend is responsible for handling API requests, managing the database, and serving the frontend application. It includes:
 
-- **Modules**
-  - `customerList.js`: Defines the customer model.
-- **Database Connection**
-  - `db.js`: Sets up the database connection.
-  - `sequelize.js`: Configures Sequelize ORM.
-  - `testConnection.js`: Tests the database connection.
-- **Server**
-  - `server.js`: Entry point for the Express server.
-- **Other Files**
-  - `package.json` & `package-lock.json`: Manage project dependencies.
-  - `node_modules/`: Installed backend dependencies.
+- **Controllers**: 
+  - adminController.js: Functions for admin-related operations (viewing registered students, updating grades).
+  - authController.js: Functions for authentication (login and logout).
+  - studentController.js: Functions for managing student operations (registration, retrieving student data).
 
----
+- **Models**: 
+  - courseModel.js: Defines the Course model for interacting with the courses table.
+  - departmentModel.js: Defines the Department model for interacting with the departments table.
+  - gradeModel.js: Defines the Grade model for interacting with the grades table.
+  - studentModel.js: Defines the Student model for interacting with the students table.
+  - voucherModel.js: Defines the Voucher model for interacting with the vouchers table.
 
-### ✅ Frontend
+- **Routes**: 
+  - adminRoutes.js: Routes related to admin functionalities.
+  - authRoutes.js: Routes for authentication.
+  - studentRoutes.js: Routes related to student functionalities.
 
-The frontend provides the user interface. It includes:
+- **Database Connection**: 
+  - db.js: Establishes a connection to the MySQL database.
 
-- `index.html`: Main page for interacting with customer data.
-- `scripts.js`: Handles frontend logic and requests to the backend.
-- `style.js`: Contains styles for the frontend.
+- **Server**: 
+  - server.js: Entry point of the backend application, setting up the Express server and middleware.
 
----
+- **Package Configuration**: 
+  - package.json: Lists dependencies and scripts for the backend project.
 
-## ⚙️ How to Clone the Repository
+### Frontend
 
-1. **Fork the Repository**
+The frontend provides the user interface for the application. It includes:
 
-   - Go to the original repository on GitHub.
-   - Click the **Fork** button in the top right corner to create your own copy under your GitHub account.
+- **HTML Files**: 
+  - index.html: Main HTML file for the registration form.
+  - login.html: HTML file for the login page.
+  - dashboard.html: HTML file for the student dashboard.
+  - admin.html: HTML file for the admin panel.
 
-2. **Copy the Repository Link**
+- **CSS**: 
+  - styles.css: Styles for the frontend application.
 
-   - In your forked repository, click the **Code** button.
-   - Copy the **HTTPS** or **SSH** URL.
+- **JavaScript**: 
+  - main.js: Handles registration form submission and voucher verification.
+  - dashboard.js: Displays student information and courses on the dashboard.
+  - admin.js: Handles admin functionalities.
 
-3. **Clone in VS Code**
+## Installation
 
-   - Open **VS Code**.
-   - Open the **Command Palette** (`Ctrl + Shift + P` or `Cmd + Shift + P` on Mac).
-   - Type **Git: Clone** and select it.
-   - Paste your copied repository URL.
-   - Choose a local folder to save the project.
-   - After cloning, click **Open** to open the project in VS Code.
+To run the project locally, follow these steps:
 
----
+1. **Clone the repository**:
+   
+git clone <repository-url>
+   cd university-enrollment-app
 
-## ⚙️ Database Setup
 
-1. **Create the Database**
+2. **Set up the backend**:
+   - Navigate to the backend directory:
+     
+cd backend
 
-   Open **MySQL Workbench** and run:
+   - Install dependencies:
+     
+npm install
 
-   ```sql
-   CREATE DATABASE customers;
+   - Create a MySQL database named university_enrollment and set up the required tables as specified in the project documentation.
+   - Start the backend server:
+     
+node src/server.js
 
-   USE customers;
 
-   CREATE TABLE customerList (
-     id INT AUTO_INCREMENT PRIMARY KEY,
-     name VARCHAR(100) NOT NULL,
-     phone VARCHAR(20) NOT NULL,
-     email VARCHAR(100) NOT NULL,
-     tag ENUM('VIP', 'High Value', 'New Lead') DEFAULT 'New Lead',
-     notes TEXT
-   );
+3. **Set up the frontend**:
+   - Navigate to the frontend directory:
+     
+cd ../frontend
 
-2. **Update Database Credentials**
+   - Open public/index.html in a web browser to access the application.
 
-   Make sure you update the database credentials in these files to match your local setup:
+## Usage
 
-   * `db.js`
-   * `sequelize.js`
-   * `server.js`
-   * `testConnection.js`
+- Register a new student using the registration form.
+- Log in using the assigned index number and the default password group16.
+- Admins can view registered students and update grades through the admin panel.
 
-   Use your **MySQL username, password, host**, and **database name**.
+## Contributing
 
----
+Contributions are welcome! Please feel free to submit a pull request or open an issue for any enhancements or bug fixes.
 
-## ▶️ Running the Project
-
-1. **Install Backend Dependencies**
-
-   ```bash
-   cd backend
-   npm install
-   ```
-
-2. **Test Database Connection**
-
-   ```bash
-   node testConnection.js
-   ```
-
-3. **Start the Backend Server**
-
-   ```bash
-   node server.js
-   ```
-
-4. **Run the Frontend**
-
-   Open a **new terminal** and run:
-
-   ```bash
-   npx serve frontend/public
-   ```
-
-   This will serve your `index.html` and related files.
-
----
-
-## 📜 License
+## License
 
 This project is licensed under the MIT License.
-
